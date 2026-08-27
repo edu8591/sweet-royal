@@ -1,0 +1,10 @@
+{
+  "name": "Eduardo Serrano — Fruit Trader",
+  "short_name": "E. Serrano",
+  "icons": [
+    { "src": "/favicon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "theme_color": "#1F3A2E",
+  "background_color": "#F7F1E3",
+  "display": "standalone"
+}
