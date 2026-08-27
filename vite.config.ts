@@ -10,4 +10,9 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
+  resolve: {
+    alias: {
+      "@": new URL("./src", import.meta.url).pathname,
+    },
+  },
 });
