@@ -25,7 +25,7 @@ function Track({ ariaHidden = false }: { ariaHidden?: boolean }) {
 /** Duplicated track scrolling half its own width, so the loop is seamless. */
 export function CredentialsMarquee() {
   return (
-    <div className="bg-ink text-paper border-banana/20 overflow-hidden border-b">
+    <div className="bg-ink text-paper border-banana/20 pointer-events-none overflow-hidden border-b select-none">
       <div className="animate-sr-marquee flex w-max motion-reduce:animate-none">
         <Track />
         <Track ariaHidden />

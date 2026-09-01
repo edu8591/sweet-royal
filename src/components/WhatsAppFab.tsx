@@ -18,7 +18,7 @@ export function WhatsAppFab() {
     <Button
       asChild
       variant="ghost"
-      className="bg-banana text-leaf hover:bg-banana hover:text-leaf fixed right-4 bottom-4 z-70 h-auto gap-2 rounded-full p-4 font-mono text-[13px] font-semibold tracking-[0.03em] shadow-[0_6px_18px_rgba(22,36,28,0.35)] transition-[transform,box-shadow] duration-200 hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(22,36,28,0.45)] min-[700px]:right-5 min-[700px]:bottom-5 min-[700px]:px-5 min-[700px]:py-3.5"
+      className="bg-banana text-leaf hover:bg-banana hover:text-leaf fixed right-4 bottom-4 z-70 size-14 rounded-full p-0 font-mono text-[13px] font-semibold tracking-[0.03em] shadow-[0_6px_18px_rgba(22,36,28,0.35)] transition-[transform,box-shadow] duration-200 hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(22,36,28,0.45)] min-[700px]:right-5 min-[700px]:bottom-5 min-[700px]:h-auto min-[700px]:w-auto min-[700px]:gap-2 min-[700px]:px-5 min-[700px]:py-3.5"
     >
       <a
         href={whatsAppLink()}
