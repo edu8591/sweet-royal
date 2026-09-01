@@ -1,8 +1,9 @@
-import { Reveal } from "@/components/Reveal"
-import { SectionHeading } from "@/components/SectionHeading"
-import { SpecRow } from "@/components/SpecRow"
-import { Wrap } from "@/components/Wrap"
-import { BOX_TYPES, PHOTOS } from "@/data/site"
+import { Reveal } from "@/components/Reveal";
+import { SectionHeading } from "@/components/SectionHeading";
+import { SpecRow } from "@/components/SpecRow";
+import { Wrap } from "@/components/Wrap";
+import { BOX_TYPES } from "@/constants/box-types";
+import { PHOTOS } from "@/constants/photos";
 
 export function SpecSheet() {
   return (
@@ -44,5 +45,5 @@ export function SpecSheet() {
         </p>
       </Wrap>
     </section>
-  )
+  );
 }

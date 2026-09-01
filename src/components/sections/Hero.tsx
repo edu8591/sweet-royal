@@ -1,15 +1,16 @@
-import { LocaleSwitcher } from "@/components/LocaleSwitcher"
-import { TradeButton } from "@/components/TradeButton"
-import { Wrap } from "@/components/Wrap"
-import { PHOTOS, type Locale } from "@/data/site"
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { TradeButton } from "@/components/TradeButton";
+import { Wrap } from "@/components/Wrap";
+import { PHOTOS } from "@/constants/photos";
+import type { Locale } from "@/types/locale";
 
 type HeroProps = {
-  photoRef: React.RefObject<HTMLDivElement | null>
-  locale: Locale
-  onSelectLocale: (id: string) => void
-  localeOpen: boolean
-  onLocaleOpenChange: (open: boolean) => void
-}
+  photoRef: React.RefObject<HTMLDivElement | null>;
+  locale: Locale;
+  onSelectLocale: (id: string) => void;
+  localeOpen: boolean;
+  onLocaleOpenChange: (open: boolean) => void;
+};
 
 export function Hero({
   photoRef,
@@ -90,5 +91,5 @@ export function Hero({
         </div>
       </Wrap>
     </header>
-  )
+  );
 }

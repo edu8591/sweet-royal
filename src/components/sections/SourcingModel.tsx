@@ -1,7 +1,7 @@
-import { Reveal } from "@/components/Reveal"
-import { SectionHeading } from "@/components/SectionHeading"
-import { Wrap } from "@/components/Wrap"
-import { PHOTOS } from "@/data/site"
+import { Reveal } from "@/components/Reveal";
+import { SectionHeading } from "@/components/SectionHeading";
+import { Wrap } from "@/components/Wrap";
+import { PHOTOS } from "@/constants/photos";
 
 export function SourcingModel() {
   return (
@@ -46,5 +46,5 @@ export function SourcingModel() {
         </div>
       </Wrap>
     </section>
-  )
+  );
 }

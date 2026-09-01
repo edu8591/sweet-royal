@@ -1,7 +1,7 @@
-import { Reveal } from "@/components/Reveal"
-import { SectionHeading } from "@/components/SectionHeading"
-import { Wrap } from "@/components/Wrap"
-import { CERTIFICATIONS } from "@/data/site"
+import { Reveal } from "@/components/Reveal";
+import { SectionHeading } from "@/components/SectionHeading";
+import { Wrap } from "@/components/Wrap";
+import { CERTIFICATIONS } from "@/constants/certifications";
 
 export function GrowerStandards() {
   return (
@@ -41,5 +41,5 @@ export function GrowerStandards() {
         </p>
       </Wrap>
     </section>
-  )
+  );
 }

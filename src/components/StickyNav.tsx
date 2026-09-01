@@ -1,15 +1,16 @@
-import { LocaleSwitcher } from "@/components/LocaleSwitcher"
-import { TradeButton } from "@/components/TradeButton"
-import { NAV_LINKS, type Locale } from "@/data/site"
-import { cn } from "@/lib/utils"
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
+import { TradeButton } from "@/components/TradeButton";
+import { NAV_LINKS } from "@/constants/nav-links";
+import { cn } from "@/lib/utils";
+import type { Locale } from "@/types/locale";
 
 type StickyNavProps = {
-  visible: boolean
-  locale: Locale
-  onSelectLocale: (id: string) => void
-  localeOpen: boolean
-  onLocaleOpenChange: (open: boolean) => void
-}
+  visible: boolean;
+  locale: Locale;
+  onSelectLocale: (id: string) => void;
+  localeOpen: boolean;
+  onLocaleOpenChange: (open: boolean) => void;
+};
 
 export function StickyNav({
   visible,
@@ -64,5 +65,5 @@ export function StickyNav({
         </div>
       </nav>
     </div>
-  )
+  );
 }

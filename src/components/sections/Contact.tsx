@@ -1,32 +1,29 @@
-import { useState } from "react"
+import { useState } from "react";
 
-import { Reveal } from "@/components/Reveal"
-import { SectionHeading } from "@/components/SectionHeading"
-import { TradeButton } from "@/components/TradeButton"
-import { Wrap } from "@/components/Wrap"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import {
-  CONTACT_EMAIL,
-  CONTACT_ENTRIES,
-  DEFAULT_MESSAGE,
-  whatsAppLink,
-} from "@/data/site"
+import { Reveal } from "@/components/Reveal";
+import { SectionHeading } from "@/components/SectionHeading";
+import { TradeButton } from "@/components/TradeButton";
+import { Wrap } from "@/components/Wrap";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { CONTACT_EMAIL, DEFAULT_MESSAGE } from "@/constants/contact-data";
+import { whatsAppLink } from "@/lib/utils";
+import { CONTACT_ENTRIES } from "@/constants/contact-entries";
 
 export function Contact() {
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
 
-  const outgoing = message.trim() || DEFAULT_MESSAGE
+  const outgoing = message.trim() || DEFAULT_MESSAGE;
 
   const sendViaWhatsApp = () => {
-    window.open(whatsAppLink(outgoing), "_blank", "noopener,noreferrer")
-  }
+    window.open(whatsAppLink(outgoing), "_blank", "noopener,noreferrer");
+  };
 
   const sendViaEmail = () => {
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
       "Sourcing inquiry",
-    )}&body=${encodeURIComponent(outgoing)}`
-  }
+    )}&body=${encodeURIComponent(outgoing)}`;
+  };
 
   return (
     <section
@@ -88,5 +85,5 @@ export function Contact() {
         </div>
       </Wrap>
     </section>
-  )
+  );
 }

@@ -1,12 +1,13 @@
-import { Reveal } from "@/components/Reveal"
-import { STATS, type Stat } from "@/data/site"
-import { useCountUp } from "@/hooks/useCountUp"
-import { cn } from "@/lib/utils"
+import { Reveal } from "@/components/Reveal";
+import { STATS } from "@/constants/stats";
+import { useCountUp } from "@/hooks/useCountUp";
+import { cn } from "@/lib/utils";
+import type { Stat } from "@/types/stat";
 
-const CELL = "bg-paper-dim px-5 pt-8 pb-[30px]"
-const NUMBER = "font-display text-[52px] leading-none"
+const CELL = "bg-paper-dim px-5 pt-8 pb-[30px]";
+const NUMBER = "font-display text-[52px] leading-none";
 const LABEL =
-  "text-muted-ink mt-2 font-mono text-[10.5px] tracking-[0.14em] uppercase"
+  "text-muted-ink mt-2 font-mono text-[10.5px] tracking-[0.14em] uppercase";
 
 function StatCell({ stat, delay }: { stat: Stat; delay: number }) {
   const { text, start } = useCountUp({
@@ -15,7 +16,7 @@ function StatCell({ stat, delay }: { stat: Stat; delay: number }) {
     prefix: stat.count?.prefix,
     suffix: stat.count?.suffix,
     initial: stat.text,
-  })
+  });
 
   return (
     <Reveal
@@ -28,7 +29,7 @@ function StatCell({ stat, delay }: { stat: Stat; delay: number }) {
       </div>
       <div className={LABEL}>{stat.label}</div>
     </Reveal>
-  )
+  );
 }
 
 /** Hairline dividers come from the 1px grid gap showing the line-coloured bed. */
@@ -41,5 +42,5 @@ export function StatsStrip() {
         ))}
       </div>
     </section>
-  )
+  );
 }

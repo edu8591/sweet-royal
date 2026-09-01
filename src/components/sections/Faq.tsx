@@ -1,7 +1,7 @@
-import { Reveal } from "@/components/Reveal"
-import { SectionHeading } from "@/components/SectionHeading"
-import { Wrap } from "@/components/Wrap"
-import { FAQS } from "@/data/site"
+import { Reveal } from "@/components/Reveal";
+import { SectionHeading } from "@/components/SectionHeading";
+import { Wrap } from "@/components/Wrap";
+import { FAQS } from "@/constants/faqs";
 
 export function Faq() {
   return (
@@ -29,5 +29,5 @@ export function Faq() {
         </div>
       </Wrap>
     </section>
-  )
+  );
 }

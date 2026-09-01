@@ -1,6 +1,5 @@
-import { Fragment } from "react"
-
-import { MARQUEE_ITEMS } from "@/data/site"
+import { MARQUEE_ITEMS } from "@/constants/marquee-items";
+import { Fragment } from "react";
 
 function Track({ ariaHidden = false }: { ariaHidden?: boolean }) {
   return (
@@ -17,7 +16,7 @@ function Track({ ariaHidden = false }: { ariaHidden?: boolean }) {
         </Fragment>
       ))}
     </div>
-  )
+  );
 }
 
 /** Duplicated track scrolling half its own width, so the loop is seamless. */
@@ -29,5 +28,5 @@ export function CredentialsMarquee() {
         <Track ariaHidden />
       </div>
     </div>
-  )
+  );
 }

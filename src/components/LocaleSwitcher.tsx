@@ -1,7 +1,8 @@
-import { useEffect, useId, useRef } from "react"
+import { useEffect, useId, useRef } from "react";
 
-import { LOCALES, type Locale } from "@/data/site"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
+import type { Locale } from "@/types/locale";
+import { LOCALES } from "@/constants/locales";
 
 function GlobeIcon({ className }: { className?: string }) {
   return (
@@ -16,18 +17,18 @@ function GlobeIcon({ className }: { className?: string }) {
       <circle cx="12" cy="12" r="9" />
       <path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" />
     </svg>
-  )
+  );
 }
 
 type LocaleSwitcherProps = {
-  locale: Locale
-  onSelect: (id: string) => void
-  open: boolean
-  onOpenChange: (open: boolean) => void
+  locale: Locale;
+  onSelect: (id: string) => void;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
   /** The hero instance names the language; the nav shows the short code. */
-  variant: "hero" | "nav"
-  className?: string
-}
+  variant: "hero" | "nav";
+  className?: string;
+};
 
 export function LocaleSwitcher({
   locale,
@@ -37,28 +38,28 @@ export function LocaleSwitcher({
   variant,
   className,
 }: LocaleSwitcherProps) {
-  const listId = useId()
-  const rootRef = useRef<HTMLDivElement>(null)
+  const listId = useId();
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!open) return
+    if (!open) return;
 
     const onPointerDown = (event: MouseEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) onOpenChange(false)
-    }
+      if (!rootRef.current?.contains(event.target as Node)) onOpenChange(false);
+    };
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onOpenChange(false)
-    }
+      if (event.key === "Escape") onOpenChange(false);
+    };
 
-    document.addEventListener("mousedown", onPointerDown)
-    document.addEventListener("keydown", onKeyDown)
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
     return () => {
-      document.removeEventListener("mousedown", onPointerDown)
-      document.removeEventListener("keydown", onKeyDown)
-    }
-  }, [open, onOpenChange])
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open, onOpenChange]);
 
-  const isHero = variant === "hero"
+  const isHero = variant === "hero";
 
   return (
     <div ref={rootRef} className={cn("relative", className)}>
@@ -94,7 +95,7 @@ export function LocaleSwitcher({
           )}
         >
           {LOCALES.map((option) => {
-            const active = option.id === locale.id
+            const active = option.id === locale.id;
             return (
               <button
                 key={option.id}
@@ -102,8 +103,8 @@ export function LocaleSwitcher({
                 role="option"
                 aria-selected={active}
                 onClick={() => {
-                  onSelect(option.id)
-                  onOpenChange(false)
+                  onSelect(option.id);
+                  onOpenChange(false);
                 }}
                 className={cn(
                   "hover:bg-banana/14 flex w-full cursor-pointer items-center justify-between gap-3.5 rounded-[2px] border-0 text-left font-mono text-[11px] tracking-[0.08em] uppercase",
@@ -114,10 +115,10 @@ export function LocaleSwitcher({
                 <span>{option.name}</span>
                 <span className="opacity-55">{option.code}</span>
               </button>
-            )
+            );
           })}
         </div>
       )}
     </div>
-  )
+  );
 }

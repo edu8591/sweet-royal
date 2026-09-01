@@ -1,7 +1,8 @@
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Wrap } from "@/components/Wrap";
-import { PHOTOS, ROUTE_STEPS } from "@/data/site";
+import { PHOTOS } from "@/constants/photos";
+import { ROUTE_STEPS } from "@/constants/route-steps";
 import { NARROW_QUERY, useMediaQuery } from "@/hooks/useMediaQuery";
 
 const ENDPOINT_LABEL =
