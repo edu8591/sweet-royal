@@ -18,6 +18,7 @@ type ContactEntryMessage = {
 export function Contact() {
   const { t } = useTranslation();
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const outgoing = message.trim() || t("sections.contact.defaultMessage");
   const entries = t("sections.contact.entries", {
@@ -31,6 +32,39 @@ export function Contact() {
 
   const sendViaWhatsApp = () => {
     window.open(whatsAppLink(outgoing), "_blank", "noopener,noreferrer");
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const body = new URLSearchParams();
+
+    for (const [key, value] of formData.entries()) {
+      body.append(key, String(value));
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: body.toString(),
+      });
+
+      if (!response.ok) throw new Error("Netlify form submit failed");
+
+      form.reset();
+      setMessage("");
+    } catch {
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+        t("sections.contact.emailSubject"),
+      )}&body=${encodeURIComponent(outgoing)}`;
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -62,6 +96,7 @@ export function Contact() {
               action="/"
               data-netlify="true"
               netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
               className="m-0"
             >
               <input type="hidden" name="form-name" value="contact" />
@@ -121,7 +156,7 @@ export function Contact() {
                 >
                   {t("sections.contact.ctaWhatsApp")}
                 </TradeButton>
-                <TradeButton type="submit">
+                <TradeButton type="submit" disabled={isSubmitting}>
                   {t("sections.contact.ctaEmail")}
                 </TradeButton>
               </div>
