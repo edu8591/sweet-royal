@@ -72,7 +72,7 @@ export function Hero({
               {t("hero.lastName")}
             </span>
           </h1>
-          <span className="text-stroke-banana animate-sr-up mt-2.5 block text-[clamp(28px,6.4vw,66px)] duration-800 ease-[cubic-bezier(.16,1,.3,1)] [animation-delay:0.44s]">
+          <span className="text-stroke-banana animate-sr-up mt-2.5 block whitespace-nowrap text-[clamp(28px,6.4vw,66px)] duration-800 ease-[cubic-bezier(.16,1,.3,1)] [animation-delay:0.44s]">
             {t("hero.role")}
           </span>
         </div>

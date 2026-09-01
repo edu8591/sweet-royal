@@ -43,6 +43,13 @@ export function LocaleSwitcher({
   const listId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
 
+  const getOptionLabel = (id: string, nativeName: string, active: boolean) => {
+    const localizedName = t(`languageNames.${id}`, nativeName);
+    if (active) return localizedName;
+    if (localizedName === nativeName) return nativeName;
+    return `${localizedName} / ${nativeName}`;
+  };
+
   useEffect(() => {
     if (!open) return;
 
@@ -114,7 +121,7 @@ export function LocaleSwitcher({
                   active ? "bg-banana/16 text-banana" : "text-paper/80",
                 )}
               >
-                <span>{t(`languageNames.${option.id}`, option.name)}</span>
+                <span>{getOptionLabel(option.id, option.name, active)}</span>
                 <span className="opacity-55">{option.code}</span>
               </button>
             );
