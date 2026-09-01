@@ -71,7 +71,11 @@ export function Contact() {
               className="border-paper/25 bg-paper/6 text-paper placeholder:text-paper/40 focus-visible:border-banana focus-visible:ring-banana/20 w-full resize-y rounded-[2px] px-3.5 py-3 font-sans text-[15px] shadow-none"
             />
             <div className="mt-4 flex flex-wrap gap-2.5">
-              <TradeButton tone="solid" onClick={sendViaWhatsApp}>
+              <TradeButton
+                tone="solid"
+                onClick={sendViaWhatsApp}
+                className="!hover:bg-paper !hover:border-paper !hover:text-leaf"
+              >
                 {t("sections.contact.ctaWhatsApp")}
               </TradeButton>
               <TradeButton onClick={sendViaEmail}>

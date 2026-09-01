@@ -14,16 +14,13 @@ export function Faq() {
         <SectionHeading tag="05" title={t("sections.faq.heading")} />
 
         {/*
-          Dividers are per-cell rules rather than a coloured grid bed showing
-          through gaps: with four cards in a three-up grid the bed would leave
-          a stray block of colour in the unfilled tail of the last row.
+          Internal dividers come from the coloured grid bed showing through
+          gaps, so cards have no outer per-cell borders and the unfilled tail
+          keeps the same divider colour.
         */}
-        <div className="border-line grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] border-t">
+        <div className="bg-line grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[2px]">
           {items.map((faq) => (
-            <Reveal
-              key={faq.q}
-              className="bg-paper-dim border-line border-r border-b px-6 pt-[26px] pb-7"
-            >
+            <Reveal key={faq.q} className="bg-paper-dim px-6 pt-[26px] pb-7">
               <h3 className="text-leaf m-0 mb-2.5 font-mono text-[12.5px] tracking-[0.06em] uppercase">
                 {faq.q}
               </h3>

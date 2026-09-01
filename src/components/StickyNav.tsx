@@ -67,7 +67,7 @@ export function StickyNav({
             onOpenChange={onLocaleOpenChange}
           />
 
-          <TradeButton asChild tone="solid" size="sm">
+          <TradeButton asChild tone="solid" motion="static" size="sm">
             <a href="#contact">{t("nav.quote")}</a>
           </TradeButton>
         </div>
