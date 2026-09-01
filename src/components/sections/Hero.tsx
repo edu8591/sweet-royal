@@ -38,7 +38,10 @@ export function Hero({
         aria-hidden="true"
         className="absolute inset-0 bg-[linear-gradient(78deg,#16241c_0%,rgba(22,36,28,0.94)_34%,rgba(31,58,46,0.72)_64%,rgba(22,36,28,0.55)_100%)]"
       />
-      <div aria-hidden="true" className="bg-hatch absolute inset-0" />
+      <div
+        aria-hidden="true"
+        className="bg-hatch pointer-events-none absolute inset-0"
+      />
 
       <div className="absolute inset-x-0 top-[26px] z-3">
         <Wrap className="flex justify-end">

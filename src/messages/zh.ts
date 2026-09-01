@@ -183,6 +183,8 @@ const zh = {
     },
     contact: {
       heading: "联系",
+      nameLabel: "姓名",
+      emailLabel: "邮箱",
       label: "留言",
       placeholder: "请告诉我你的产品、数量和时间需求...",
       emailSubject: "采购咨询",

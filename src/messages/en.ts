@@ -184,6 +184,8 @@ const en = {
     },
     contact: {
       heading: "Contact",
+      nameLabel: "Name",
+      emailLabel: "Email",
       label: "Leave a message",
       placeholder:
         "Tell me what you're looking for - product, volume, timing...",

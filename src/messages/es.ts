@@ -188,6 +188,8 @@ const es = {
     },
     contact: {
       heading: "Contacto",
+      nameLabel: "Nombre",
+      emailLabel: "Email",
       label: "Deja un mensaje",
       placeholder: "Dime que buscas: producto, volumen, tiempo...",
       emailSubject: "Consulta de abastecimiento",

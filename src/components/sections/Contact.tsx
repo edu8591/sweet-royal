@@ -33,18 +33,15 @@ export function Contact() {
     window.open(whatsAppLink(outgoing), "_blank", "noopener,noreferrer");
   };
 
-  const sendViaEmail = () => {
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      t("sections.contact.emailSubject"),
-    )}&body=${encodeURIComponent(outgoing)}`;
-  };
-
   return (
     <section
       id="contact"
       className="bg-leaf text-paper relative overflow-hidden py-24"
     >
-      <div aria-hidden="true" className="bg-hatch absolute inset-0" />
+      <div
+        aria-hidden="true"
+        className="bg-hatch pointer-events-none absolute inset-0"
+      />
 
       <Wrap className="relative">
         <SectionHeading
@@ -55,33 +52,80 @@ export function Contact() {
         />
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] items-start gap-10">
-          <Reveal className="border-banana/35 bg-banana/8 rounded border p-6">
-            <Label
-              htmlFor="msgField"
-              className="text-paper/55 mb-3 block font-mono text-[11px] tracking-[0.1em] uppercase"
+          <Reveal
+            asChild
+            className="border-banana/35 bg-banana/8 rounded border p-6"
+          >
+            <form
+              name="contact"
+              method="POST"
+              action="/"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              className="m-0"
             >
-              {t("sections.contact.label")}
-            </Label>
-            <Textarea
-              id="msgField"
-              rows={4}
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
-              placeholder={t("sections.contact.placeholder")}
-              className="border-paper/25 bg-paper/6 text-paper placeholder:text-paper/40 focus-visible:border-banana focus-visible:ring-banana/20 w-full resize-y rounded-[2px] px-3.5 py-3 font-sans text-[15px] shadow-none"
-            />
-            <div className="mt-4 flex flex-wrap gap-2.5">
-              <TradeButton
-                tone="solid"
-                onClick={sendViaWhatsApp}
-                className="!hover:bg-paper !hover:border-paper !hover:text-leaf"
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
+              <input
+                type="hidden"
+                name="subject"
+                value={t("sections.contact.emailSubject")}
+              />
+              <Label
+                htmlFor="nameField"
+                className="text-paper/55 mb-3 block font-mono text-[11px] tracking-[0.1em] uppercase"
               >
-                {t("sections.contact.ctaWhatsApp")}
-              </TradeButton>
-              <TradeButton onClick={sendViaEmail}>
-                {t("sections.contact.ctaEmail")}
-              </TradeButton>
-            </div>
+                {t("sections.contact.nameLabel")}
+              </Label>
+              <input
+                id="nameField"
+                type="text"
+                name="name"
+                required
+                className="border-paper/25 bg-paper/6 text-paper placeholder:text-paper/40 focus-visible:border-banana focus-visible:ring-banana/20 mb-4 w-full rounded-[2px] border px-3.5 py-3 font-sans text-[15px] shadow-none outline-none"
+              />
+              <Label
+                htmlFor="emailField"
+                className="text-paper/55 mb-3 block font-mono text-[11px] tracking-[0.1em] uppercase"
+              >
+                {t("sections.contact.emailLabel")}
+              </Label>
+              <input
+                id="emailField"
+                type="email"
+                name="email"
+                required
+                className="border-paper/25 bg-paper/6 text-paper placeholder:text-paper/40 focus-visible:border-banana focus-visible:ring-banana/20 mb-4 w-full rounded-[2px] border px-3.5 py-3 font-sans text-[15px] shadow-none outline-none"
+              />
+              <Label
+                htmlFor="msgField"
+                className="text-paper/55 mb-3 block font-mono text-[11px] tracking-[0.1em] uppercase"
+              >
+                {t("sections.contact.label")}
+              </Label>
+              <Textarea
+                id="msgField"
+                name="message"
+                rows={4}
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                placeholder={t("sections.contact.placeholder")}
+                className="border-paper/25 bg-paper/6 text-paper placeholder:text-paper/40 focus-visible:border-banana focus-visible:ring-banana/20 w-full resize-y rounded-[2px] px-3.5 py-3 font-sans text-[15px] shadow-none"
+              />
+              <div className="mt-4 flex flex-wrap gap-2.5">
+                <TradeButton
+                  tone="solid"
+                  type="button"
+                  onClick={sendViaWhatsApp}
+                  className="!hover:bg-paper !hover:border-paper !hover:text-leaf"
+                >
+                  {t("sections.contact.ctaWhatsApp")}
+                </TradeButton>
+                <TradeButton type="submit">
+                  {t("sections.contact.ctaEmail")}
+                </TradeButton>
+              </div>
+            </form>
           </Reveal>
 
           <Reveal delay={140} asChild>

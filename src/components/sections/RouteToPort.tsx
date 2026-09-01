@@ -38,7 +38,10 @@ export function RouteToPort() {
       id="route"
       className="bg-leaf text-paper relative overflow-hidden pt-22 pb-24"
     >
-      <div aria-hidden="true" className="bg-hatch absolute inset-0" />
+      <div
+        aria-hidden="true"
+        className="bg-hatch pointer-events-none absolute inset-0"
+      />
 
       <Wrap className="relative">
         <SectionHeading

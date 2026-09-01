@@ -184,6 +184,8 @@ const ja = {
     },
     contact: {
       heading: "お問い合わせ",
+      nameLabel: "お名前",
+      emailLabel: "メール",
       label: "メッセージを入力",
       placeholder: "必要な商品、数量、時期などをご記入ください...",
       emailSubject: "調達に関するお問い合わせ",

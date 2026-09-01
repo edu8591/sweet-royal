@@ -184,6 +184,8 @@ const ko = {
     },
     contact: {
       heading: "문의",
+      nameLabel: "이름",
+      emailLabel: "이메일",
       label: "메시지 남기기",
       placeholder: "원하시는 상품, 물량, 일정 등을 알려주세요...",
       emailSubject: "소싱 문의",
