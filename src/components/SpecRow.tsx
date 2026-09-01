@@ -6,7 +6,7 @@ type SpecRowProps = {
 /** A key/value line joined by a dotted leader, like a printed cargo manifest. */
 export function SpecRow({ label, value }: SpecRowProps) {
   return (
-    <div className="flex items-baseline justify-between gap-2 py-[5px] font-mono text-[12.5px]">
+    <div className="hover:bg-banana/7 flex items-baseline justify-between gap-2 rounded-[2px] py-[7px] font-mono text-[12.5px] transition-colors duration-150">
       <span className="text-paper/55 whitespace-nowrap">{label}</span>
       <span
         aria-hidden="true"

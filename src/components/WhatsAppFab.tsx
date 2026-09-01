@@ -9,16 +9,22 @@ function WhatsAppIcon(props: React.ComponentProps<"svg">) {
   )
 }
 
+/** Collapses to an icon-only circle below the 700px breakpoint. */
 export function WhatsAppFab() {
   return (
     <Button
       asChild
       variant="ghost"
-      className="bg-banana text-leaf hover:bg-paper hover:text-leaf fixed right-5 bottom-5 z-50 h-auto gap-2 rounded-full px-[18px] py-[13px] font-mono text-[13px] font-semibold tracking-[0.03em] shadow-[0_6px_18px_rgba(22,36,28,0.35)]"
+      className="bg-banana text-leaf hover:bg-banana hover:text-leaf fixed right-4 bottom-4 z-70 h-auto gap-2 rounded-full p-4 font-mono text-[13px] font-semibold tracking-[0.03em] shadow-[0_6px_18px_rgba(22,36,28,0.35)] transition-[transform,box-shadow] duration-200 hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(22,36,28,0.45)] min-[700px]:right-5 min-[700px]:bottom-5 min-[700px]:px-5 min-[700px]:py-3.5"
     >
-      <a href={whatsAppLink()} target="_blank" rel="noopener noreferrer">
+      <a
+        href={whatsAppLink()}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Message me on WhatsApp"
+      >
         <WhatsAppIcon className="size-4 shrink-0" />
-        Message me
+        <span className="hidden min-[700px]:inline">Message me</span>
       </a>
     </Button>
   )

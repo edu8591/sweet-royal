@@ -59,6 +59,65 @@
   --font-display: "Bebas Neue", sans-serif;
 
   --radius: 0.125rem;
+
+  /* Hero entrance and ambient loops. */
+  --animate-sr-up: srUp 0.7s ease-out both;
+  --animate-sr-rule: srRule 0.6s ease-out both;
+  --animate-sr-dash: srDash 6s linear infinite;
+  --animate-sr-sail: srSail 7s ease-in-out infinite alternate;
+  --animate-sr-pulse: srPulse 2.6s ease-in-out infinite;
+  --animate-sr-marquee: srMarquee 34s linear infinite;
+
+  @keyframes srUp {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes srRule {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes srDash {
+    to {
+      stroke-dashoffset: -200;
+    }
+  }
+  @keyframes srSail {
+    0% {
+      left: 6%;
+    }
+    100% {
+      left: 94%;
+    }
+  }
+  @keyframes srPulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.45;
+      transform: scale(1.9);
+    }
+  }
+  @keyframes srMarquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @layer base {
@@ -86,5 +145,16 @@
 
 @utility text-stroke-banana {
   color: transparent;
-  -webkit-text-stroke: 1.4px var(--color-banana);
+  -webkit-text-stroke: 1.6px var(--color-banana);
+}
+
+/* Diagonal hatching, like security paper on a trade document. */
+@utility bg-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(247, 241, 227, 0.035) 0px,
+    rgba(247, 241, 227, 0.035) 2px,
+    transparent 2px,
+    transparent 14px
+  );
 }

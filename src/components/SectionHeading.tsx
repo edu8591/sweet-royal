@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/Reveal"
 import { cn } from "@/lib/utils"
 
 type SectionHeadingProps = {
@@ -15,9 +16,9 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div
+    <Reveal
       className={cn(
-        "mb-[22px] flex items-baseline gap-3 border-b pb-2.5",
+        "mb-[34px] flex items-baseline gap-3.5 border-b pb-3",
         onDark ? "border-paper/25" : "border-line",
         className,
       )}
@@ -32,12 +33,12 @@ export function SectionHeading({
       </span>
       <h2
         className={cn(
-          "font-display m-0 text-[26px] tracking-[0.02em]",
+          "font-display m-0 text-[clamp(30px,4vw,44px)] tracking-[0.02em]",
           onDark ? "text-paper" : "text-ink",
         )}
       >
         {title}
       </h2>
-    </div>
+    </Reveal>
   )
 }
