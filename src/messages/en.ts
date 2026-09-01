@@ -59,10 +59,8 @@ const en = {
   sections: {
     sourcing: {
       heading: "How sourcing works",
-      p1:
-        "I work as an independent trader connecting Ecuadorian banana supply with buyers in Asia. Rather than representing one grower's fixed production, I source spot volumes through a partner network of growers in Ecuador - which means pricing and availability are quoted per shipment, and I can flex on volume as your needs change.",
-      p2:
-        "Trade basis: FCA at origin, with terms discussed per order. Reach out with your target volume and delivery window and I'll come back with a quote.",
+      p1: "I work as an independent trader connecting Ecuadorian banana supply with buyers in Asia. Rather than representing one grower's fixed production, I source spot volumes through a partner network of growers in Ecuador - which means pricing and availability are quoted per shipment, and I can flex on volume as your needs change.",
+      p2: "Trade basis: FCA at origin, with terms discussed per order. Reach out with your target volume and delivery window and I'll come back with a quote.",
       imageAlt: "Green bananas being cut at a plantation",
       quote:
         "One trader, many growers - so volume and timing flex with your order, not the other way round.",
@@ -137,8 +135,7 @@ const en = {
           ],
         },
       ],
-      note:
-        "Indicative spec range for premium-grade Cavendish available through the sourcing network. Exact spec confirmed per shipment.",
+      note: "Indicative spec range for premium-grade Cavendish available through the sourcing network. Exact spec confirmed per shipment.",
     },
     standards: {
       heading: "Grower standards",
@@ -159,8 +156,7 @@ const en = {
           note: "Certified sustainable farm management.",
         },
       ],
-      note:
-        "These are the certifications most common across the network - but tell me what your market requires and I'll source growers that hold it. Certificates for a specific shipment provided on request.",
+      note: "These are the certifications most common across the network - but tell me what your market requires and I'll source growers that hold it. Certificates for a specific shipment provided on request.",
     },
     faq: {
       heading: "Buyer questions",
@@ -186,7 +182,8 @@ const en = {
     contact: {
       heading: "Contact",
       label: "Leave a message",
-      placeholder: "Tell me what you're looking for - product, volume, timing...",
+      placeholder:
+        "Tell me what you're looking for - product, volume, timing...",
       emailSubject: "Sourcing inquiry",
       defaultMessage: "Hi Eduardo, I'd like to talk about sourcing.",
       ctaWhatsApp: "Send via WhatsApp",

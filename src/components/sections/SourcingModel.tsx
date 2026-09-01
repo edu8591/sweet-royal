@@ -17,9 +17,7 @@ export function SourcingModel() {
             <p className="m-0 mb-[18px] text-[17px]">
               {t("sections.sourcing.p1")}
             </p>
-            <p className="m-0 text-[17px]">
-              {t("sections.sourcing.p2")}
-            </p>
+            <p className="m-0 text-[17px]">{t("sections.sourcing.p2")}</p>
           </Reveal>
 
           <Reveal delay={140}>

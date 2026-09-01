@@ -81,7 +81,9 @@ export function RouteToPort() {
                   aria-hidden="true"
                   className="bg-banana animate-sr-pulse size-[9px] rounded-full motion-reduce:animate-none"
                 />
-                <span className={ENDPOINT_LABEL}>{t("sections.route.originLabel")}</span>
+                <span className={ENDPOINT_LABEL}>
+                  {t("sections.route.originLabel")}
+                </span>
               </div>
               <div className={PORT_NAME}>{t("sections.route.originPort")}</div>
               <div className={PORT_NOTE}>{t("sections.route.originNote")}</div>
@@ -89,14 +91,20 @@ export function RouteToPort() {
 
             <div className="text-right">
               <div className="mb-2.5 flex items-center justify-end gap-[9px]">
-                <span className={ENDPOINT_LABEL}>{t("sections.route.destinationLabel")}</span>
+                <span className={ENDPOINT_LABEL}>
+                  {t("sections.route.destinationLabel")}
+                </span>
                 <span
                   aria-hidden="true"
                   className="border-banana size-[9px] rounded-full border"
                 />
               </div>
-              <div className={PORT_NAME}>{t("sections.route.destinationPort")}</div>
-              <div className={PORT_NOTE}>{t("sections.route.destinationNote")}</div>
+              <div className={PORT_NAME}>
+                {t("sections.route.destinationPort")}
+              </div>
+              <div className={PORT_NOTE}>
+                {t("sections.route.destinationNote")}
+              </div>
             </div>
           </div>
 

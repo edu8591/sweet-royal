@@ -53,16 +53,18 @@ const es = {
         count: { to: 12, prefix: "10 - ", suffix: " sem" },
         label: "Edad de fruta al corte",
       },
-      { text: "A pedido", label: "Certificaciones que solicites", accent: true },
+      {
+        text: "A pedido",
+        label: "Certificaciones que solicites",
+        accent: true,
+      },
     ],
   },
   sections: {
     sourcing: {
       heading: "Como funciona el abastecimiento",
-      p1:
-        "Trabajo como trader independiente conectando oferta de banano ecuatoriano con compradores en Asia. En vez de representar la produccion fija de un solo productor, abastezco volumenes spot mediante una red de productores en Ecuador, lo que permite cotizar precio y disponibilidad por embarque y ajustar volumen segun tu necesidad.",
-      p2:
-        "Base comercial: FCA en origen, con terminos acordados por pedido. Escribeme con tu volumen objetivo y ventana de entrega y regreso con una cotizacion.",
+      p1: "Trabajo como trader independiente conectando oferta de banano ecuatoriano con compradores en Asia. En vez de representar la produccion fija de un solo productor, abastezco volumenes spot mediante una red de productores en Ecuador, lo que permite cotizar precio y disponibilidad por embarque y ajustar volumen segun tu necesidad.",
+      p2: "Base comercial: FCA en origen, con terminos acordados por pedido. Escribeme con tu volumen objetivo y ventana de entrega y regreso con una cotizacion.",
       imageAlt: "Bananos verdes siendo cortados en una plantacion",
       quote:
         "Un trader, muchos productores: el volumen y el timing se adaptan a tu pedido, no al reves.",
@@ -137,8 +139,7 @@ const es = {
           ],
         },
       ],
-      note:
-        "Rango referencial para Cavendish premium disponible por la red de abastecimiento. La especificacion exacta se confirma por embarque.",
+      note: "Rango referencial para Cavendish premium disponible por la red de abastecimiento. La especificacion exacta se confirma por embarque.",
     },
     standards: {
       heading: "Estandares de productores",
@@ -159,8 +160,7 @@ const es = {
           note: "Gestion sostenible de finca certificada.",
         },
       ],
-      note:
-        "Estas son las certificaciones mas comunes en la red, pero dime que exige tu mercado y abastezco productores que la tengan. Certificados por embarque disponibles a solicitud.",
+      note: "Estas son las certificaciones mas comunes en la red, pero dime que exige tu mercado y abastezco productores que la tengan. Certificados por embarque disponibles a solicitud.",
     },
     faq: {
       heading: "Preguntas de compradores",

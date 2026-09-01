@@ -8,7 +8,9 @@ import { useTranslation } from "react-i18next";
 
 export function SpecSheet() {
   const { t } = useTranslation();
-  const boxTypes = t("sections.spec.boxTypes", { returnObjects: true }) as BoxType[];
+  const boxTypes = t("sections.spec.boxTypes", {
+    returnObjects: true,
+  }) as BoxType[];
 
   return (
     <section id="manifest" className="bg-paper-dim py-24">
