@@ -6,6 +6,9 @@ const es = {
   languageNames: {
     en: "Ingles",
     es: "Espanol",
+    ja: "Japones",
+    ko: "Coreano",
+    zh: "Chino",
   },
   nav: {
     brand: "E. Serrano",
