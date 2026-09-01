@@ -36,7 +36,12 @@ export function RouteToPort() {
       <div aria-hidden="true" className="bg-hatch absolute inset-0" />
 
       <Wrap className="relative">
-        <SectionHeading tag="02" title="Origin to port" className="mb-11" />
+        <SectionHeading
+          tag="02"
+          title="Origin to port"
+          className="mb-11"
+          onDark
+        />
 
         <Reveal className="relative pt-[46px] pb-[30px]">
           {/* Static track, animated dashes, and a dot sailing between ports. */}
