@@ -1,8 +1,8 @@
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { TradeButton } from "@/components/TradeButton";
-import { NAV_LINKS } from "@/constants/nav-links";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/types/locale";
+import { useTranslation } from "react-i18next";
 
 type StickyNavProps = {
   visible: boolean;
@@ -19,6 +19,14 @@ export function StickyNav({
   localeOpen,
   onLocaleOpenChange,
 }: StickyNavProps) {
+  const { t } = useTranslation();
+  const links = [
+    { href: "#sourcing", label: t("nav.links.sourcing") },
+    { href: "#route", label: t("nav.links.route") },
+    { href: "#manifest", label: t("nav.links.spec") },
+    { href: "#faq", label: t("nav.links.faq") },
+  ];
+
   return (
     <div
       className={cn(
@@ -37,11 +45,11 @@ export function StickyNav({
             aria-hidden="true"
             className="bg-banana inline-block size-[7px] rounded-full"
           />
-          E. Serrano
+          {t("nav.brand")}
         </a>
 
         <div className="flex flex-wrap items-center gap-x-[18px] gap-y-2.5">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -60,7 +68,7 @@ export function StickyNav({
           />
 
           <TradeButton asChild tone="solid" size="sm">
-            <a href="#contact">Get a quote</a>
+            <a href="#contact">{t("nav.quote")}</a>
           </TradeButton>
         </div>
       </nav>

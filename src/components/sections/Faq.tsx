@@ -1,13 +1,17 @@
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Wrap } from "@/components/Wrap";
-import { FAQS } from "@/constants/faqs";
+import type { Faq } from "@/types/faq";
+import { useTranslation } from "react-i18next";
 
 export function Faq() {
+  const { t } = useTranslation();
+  const items = t("sections.faq.items", { returnObjects: true }) as Faq[];
+
   return (
     <section id="faq" className="bg-paper-dim border-line border-t py-24">
       <Wrap>
-        <SectionHeading tag="05" title="Buyer questions" />
+        <SectionHeading tag="05" title={t("sections.faq.heading")} />
 
         {/*
           Dividers are per-cell rules rather than a coloured grid bed showing
@@ -15,7 +19,7 @@ export function Faq() {
           a stray block of colour in the unfilled tail of the last row.
         */}
         <div className="border-line grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] border-t">
-          {FAQS.map((faq) => (
+          {items.map((faq) => (
             <Reveal
               key={faq.q}
               className="bg-paper-dim border-line border-r border-b px-6 pt-[26px] pb-7"

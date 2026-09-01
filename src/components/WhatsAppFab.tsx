@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { whatsAppLink } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 function WhatsAppIcon(props: React.ComponentProps<"svg">) {
   return (
@@ -11,6 +12,8 @@ function WhatsAppIcon(props: React.ComponentProps<"svg">) {
 
 /** Collapses to an icon-only circle below the 700px breakpoint. */
 export function WhatsAppFab() {
+  const { t } = useTranslation();
+
   return (
     <Button
       asChild
@@ -21,10 +24,10 @@ export function WhatsAppFab() {
         href={whatsAppLink()}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Message me on WhatsApp"
+        aria-label={t("fab.ariaLabel")}
       >
         <WhatsAppIcon className="size-4 shrink-0" />
-        <span className="hidden min-[700px]:inline">Message me</span>
+        <span className="hidden min-[700px]:inline">{t("fab.label")}</span>
       </a>
     </Button>
   );

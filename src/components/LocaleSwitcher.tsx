@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/types/locale";
@@ -38,6 +39,7 @@ export function LocaleSwitcher({
   variant,
   className,
 }: LocaleSwitcherProps) {
+  const { t } = useTranslation();
   const listId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -68,7 +70,7 @@ export function LocaleSwitcher({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={open ? listId : undefined}
-        aria-label="Select language"
+        aria-label={t("common.selectLanguage")}
         onClick={() => onOpenChange(!open)}
         className={cn(
           "border-paper/30 text-paper hover:border-banana hover:text-banana flex cursor-pointer items-center gap-2 rounded-[2px] border font-mono text-[11px] tracking-[0.1em] uppercase transition-colors duration-200",
@@ -78,7 +80,7 @@ export function LocaleSwitcher({
         )}
       >
         <GlobeIcon className={isHero ? "size-3.5" : "size-[13px]"} />
-        {isHero ? locale.name : locale.code}
+        {isHero ? t(`languageNames.${locale.id}`, locale.name) : locale.code}
         <span aria-hidden="true" className="text-[8px] opacity-70">
           ▼
         </span>
@@ -88,7 +90,7 @@ export function LocaleSwitcher({
         <div
           id={listId}
           role="listbox"
-          aria-label="Language"
+          aria-label={t("common.language")}
           className={cn(
             "bg-ink border-banana/35 absolute top-[calc(100%+8px)] right-0 z-10 rounded-[3px] border p-[5px] shadow-[0_18px_40px_-18px_rgba(0,0,0,0.7)]",
             isHero ? "min-w-[200px]" : "min-w-[190px]",
@@ -112,7 +114,7 @@ export function LocaleSwitcher({
                   active ? "bg-banana/16 text-banana" : "text-paper/80",
                 )}
               >
-                <span>{option.name}</span>
+                <span>{t(`languageNames.${option.id}`, option.name)}</span>
                 <span className="opacity-55">{option.code}</span>
               </button>
             );

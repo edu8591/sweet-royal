@@ -1,13 +1,16 @@
-import { MARQUEE_ITEMS } from "@/constants/marquee-items";
 import { Fragment } from "react";
+import { useTranslation } from "react-i18next";
 
 function Track({ ariaHidden = false }: { ariaHidden?: boolean }) {
+  const { t } = useTranslation();
+  const items = t("marquee.items", { returnObjects: true }) as string[];
+
   return (
     <div
       aria-hidden={ariaHidden || undefined}
       className="text-paper/62 flex items-center gap-11 px-[22px] py-3.5 font-mono text-[11.5px] tracking-[0.16em] whitespace-nowrap uppercase"
     >
-      {MARQUEE_ITEMS.map((item) => (
+      {items.map((item) => (
         <Fragment key={item}>
           <span>{item}</span>
           <span aria-hidden="true" className="text-banana">

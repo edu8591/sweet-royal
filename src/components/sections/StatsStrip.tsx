@@ -1,8 +1,8 @@
 import { Reveal } from "@/components/Reveal";
-import { STATS } from "@/constants/stats";
 import { useCountUp } from "@/hooks/useCountUp";
 import { cn } from "@/lib/utils";
 import type { Stat } from "@/types/stat";
+import { useTranslation } from "react-i18next";
 
 const CELL = "bg-paper-dim px-5 pt-8 pb-[30px]";
 const NUMBER = "font-display text-[52px] leading-none";
@@ -34,10 +34,13 @@ function StatCell({ stat, delay }: { stat: Stat; delay: number }) {
 
 /** Hairline dividers come from the 1px grid gap showing the line-coloured bed. */
 export function StatsStrip() {
+  const { t } = useTranslation();
+  const stats = t("stats.items", { returnObjects: true }) as Stat[];
+
   return (
     <section className="bg-paper-dim border-line border-b">
       <div className="bg-line mx-auto grid max-w-[1080px] grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-px px-1">
-        {STATS.map((stat, index) => (
+        {stats.map((stat, index) => (
           <StatCell key={stat.label} stat={stat} delay={index * 120} />
         ))}
       </div>

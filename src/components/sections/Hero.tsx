@@ -3,6 +3,7 @@ import { TradeButton } from "@/components/TradeButton";
 import { Wrap } from "@/components/Wrap";
 import { PHOTOS } from "@/constants/photos";
 import type { Locale } from "@/types/locale";
+import { useTranslation } from "react-i18next";
 
 type HeroProps = {
   photoRef: React.RefObject<HTMLDivElement | null>;
@@ -19,6 +20,8 @@ export function Hero({
   localeOpen,
   onLocaleOpenChange,
 }: HeroProps) {
+  const { t } = useTranslation();
+
   return (
     <header
       id="top"
@@ -57,35 +60,33 @@ export function Hero({
             aria-hidden="true"
             className="bg-banana animate-sr-rule inline-block h-px w-[22px] origin-left [animation-delay:0.15s]"
           />
-          Ecuador — Asia · Spot Fruit Sourcing
+          {t("hero.kicker")}
         </div>
 
         <div className="font-display max-w-[15ch] leading-[0.86] tracking-[0.01em]">
           <h1 className="text-paper m-0 text-[clamp(56px,12vw,132px)] font-normal">
             <span className="animate-sr-up block duration-800 ease-[cubic-bezier(.16,1,.3,1)] [animation-delay:0.18s]">
-              Eduardo
+              {t("hero.firstName")}
             </span>
             <span className="animate-sr-up block duration-800 ease-[cubic-bezier(.16,1,.3,1)] [animation-delay:0.3s]">
-              Serrano
+              {t("hero.lastName")}
             </span>
           </h1>
           <span className="text-stroke-banana animate-sr-up mt-2.5 block text-[clamp(28px,6.4vw,66px)] duration-800 ease-[cubic-bezier(.16,1,.3,1)] [animation-delay:0.44s]">
-            Fruit Trader
+            {t("hero.role")}
           </span>
         </div>
 
         <div className="mt-[38px] flex flex-wrap items-end justify-between gap-9">
           <p className="text-paper-dim animate-sr-up m-0 max-w-[46ch] text-[17px] duration-800 [animation-delay:0.56s]">
-            Spot sourcing of Ecuadorian Cavendish bananas for Asian buyers,
-            drawn from a network of certified growers rather than a single fixed
-            origin.
+            {t("hero.intro")}
           </p>
           <div className="animate-sr-up flex gap-3 duration-800 [animation-delay:0.68s]">
             <TradeButton asChild tone="solid" size="lg">
-              <a href="#contact">Get in touch</a>
+              <a href="#contact">{t("hero.ctaContact")}</a>
             </TradeButton>
             <TradeButton asChild size="lg">
-              <a href="#manifest">Product spec</a>
+              <a href="#manifest">{t("hero.ctaSpec")}</a>
             </TradeButton>
           </div>
         </div>

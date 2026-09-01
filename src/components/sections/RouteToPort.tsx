@@ -2,8 +2,9 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Wrap } from "@/components/Wrap";
 import { PHOTOS } from "@/constants/photos";
-import { ROUTE_STEPS } from "@/constants/route-steps";
 import { NARROW_QUERY, useMediaQuery } from "@/hooks/useMediaQuery";
+import type { Step } from "@/types/step";
+import { useTranslation } from "react-i18next";
 
 const ENDPOINT_LABEL =
   "text-paper/55 font-mono text-[10.5px] tracking-[0.14em] uppercase";
@@ -12,6 +13,7 @@ const PORT_NOTE = "text-paper/55 mt-1 font-mono text-[11.5px]";
 
 /** Portrait, Pacific-centred crop with oversized labels for small screens. */
 function RouteMap() {
+  const { t } = useTranslation();
   const narrow = useMediaQuery(NARROW_QUERY);
 
   return (
@@ -20,7 +22,7 @@ function RouteMap() {
         src={
           narrow ? "/assets/route-map-mobile.webp" : "/assets/route-map.webp"
         }
-        alt="Map of shipping routes from Guayaquil, Ecuador to Tokyo, Busan, Shanghai and Singapore"
+        alt={t("sections.route.mapAlt")}
         className="block h-auto w-full"
       />
     </div>
@@ -28,6 +30,9 @@ function RouteMap() {
 }
 
 export function RouteToPort() {
+  const { t } = useTranslation();
+  const steps = t("sections.route.steps", { returnObjects: true }) as Step[];
+
   return (
     <section
       id="route"
@@ -38,7 +43,7 @@ export function RouteToPort() {
       <Wrap className="relative">
         <SectionHeading
           tag="02"
-          title="Origin to port"
+          title={t("sections.route.heading")}
           className="mb-11"
           onDark
         />
@@ -76,22 +81,22 @@ export function RouteToPort() {
                   aria-hidden="true"
                   className="bg-banana animate-sr-pulse size-[9px] rounded-full motion-reduce:animate-none"
                 />
-                <span className={ENDPOINT_LABEL}>Origin</span>
+                <span className={ENDPOINT_LABEL}>{t("sections.route.originLabel")}</span>
               </div>
-              <div className={PORT_NAME}>Guayaquil</div>
-              <div className={PORT_NOTE}>Ecuador · FCA basis</div>
+              <div className={PORT_NAME}>{t("sections.route.originPort")}</div>
+              <div className={PORT_NOTE}>{t("sections.route.originNote")}</div>
             </div>
 
             <div className="text-right">
               <div className="mb-2.5 flex items-center justify-end gap-[9px]">
-                <span className={ENDPOINT_LABEL}>Destination</span>
+                <span className={ENDPOINT_LABEL}>{t("sections.route.destinationLabel")}</span>
                 <span
                   aria-hidden="true"
                   className="border-banana size-[9px] rounded-full border"
                 />
               </div>
-              <div className={PORT_NAME}>Asian ports</div>
-              <div className={PORT_NOTE}>Japan · Korea · China · SE Asia</div>
+              <div className={PORT_NAME}>{t("sections.route.destinationPort")}</div>
+              <div className={PORT_NOTE}>{t("sections.route.destinationNote")}</div>
             </div>
           </div>
 
@@ -101,7 +106,7 @@ export function RouteToPort() {
         <Reveal className="relative mt-14 overflow-hidden rounded-[3px]">
           <img
             src={PHOTOS.loading}
-            alt="Workers loading bananas onto a truck at a plantation"
+            alt={t("sections.route.loadingAlt")}
             className="block h-[230px] w-full object-cover"
           />
           <div
@@ -109,16 +114,16 @@ export function RouteToPort() {
             className="absolute inset-0 bg-[linear-gradient(to_top,rgba(22,36,28,0.85)_0%,rgba(22,36,28,0.1)_60%)]"
           />
           <div className="text-paper/75 absolute bottom-[18px] left-[22px] font-mono text-[10.5px] tracking-[0.16em] uppercase">
-            Cut, packed and loaded at origin
+            {t("sections.route.loadingCaption")}
           </div>
         </Reveal>
 
         {/* 1px gaps over the translucent bed read as hairline dividers. */}
         <div className="mt-0.5 grid grid-cols-[repeat(auto-fit,minmax(210px,1fr))] gap-px bg-[rgba(247,241,227,0.16)]">
-          {ROUTE_STEPS.map((step) => (
+          {steps.map((step) => (
             <Reveal key={step.n} className="bg-leaf px-[22px] pt-7 pb-[30px]">
               <div className="text-banana mb-4 font-mono text-[10.5px] tracking-[0.16em] uppercase">
-                Step {step.n}
+                {t("sections.route.stepPrefix")} {step.n}
               </div>
               <div className="font-display text-paper text-[26px] tracking-[0.03em]">
                 {step.title}

@@ -1,16 +1,22 @@
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Wrap } from "@/components/Wrap";
-import { CERTIFICATIONS } from "@/constants/certifications";
+import type { Certification } from "@/types/certification";
+import { useTranslation } from "react-i18next";
 
 export function GrowerStandards() {
+  const { t } = useTranslation();
+  const certifications = t("sections.standards.certifications", {
+    returnObjects: true,
+  }) as Certification[];
+
   return (
     <section id="standards" className="py-24">
       <Wrap>
-        <SectionHeading tag="04" title="Grower standards" />
+        <SectionHeading tag="04" title={t("sections.standards.heading")} />
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
-          {CERTIFICATIONS.map((cert) => (
+          {certifications.map((cert) => (
             <Reveal
               key={cert.name}
               className="border-line bg-paper hover:border-leaf rounded-[3px] border p-[22px] transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-[3px] hover:shadow-[0_14px_30px_-18px_rgba(22,36,28,0.5)]"
@@ -35,9 +41,7 @@ export function GrowerStandards() {
         </div>
 
         <p className="text-muted-ink m-0 mt-[18px] max-w-[88ch] text-[13.5px]">
-          These are the certifications most common across the network — but tell
-          me what your market requires and I'll source growers that hold it.
-          Certificates for a specific shipment provided on request.
+          {t("sections.standards.note")}
         </p>
       </Wrap>
     </section>

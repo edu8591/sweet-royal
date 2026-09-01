@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyNav } from "@/components/StickyNav";
@@ -16,28 +17,32 @@ import { useScrollDriver } from "@/hooks/useScrollDriver";
 import { LOCALES } from "./constants/locales";
 
 function App() {
+  const { i18n } = useTranslation();
   const { navVisible, photoRef } = useScrollDriver();
 
-  // Display-only: the switcher changes its own label, nothing else.
-  const [localeId, setLocaleId] = useState(LOCALES[0].id);
   // The two switchers share a selection but only one menu opens at a time.
   const [openMenu, setOpenMenu] = useState<"hero" | "nav" | null>(null);
 
+  const localeId = i18n.resolvedLanguage ?? i18n.language ?? LOCALES[0].id;
   const locale = LOCALES.find((item) => item.id === localeId) ?? LOCALES[0];
+
+  const handleSelectLocale = (id: string) => {
+    void i18n.changeLanguage(id);
+  };
 
   return (
     <>
       <StickyNav
         visible={navVisible}
         locale={locale}
-        onSelectLocale={setLocaleId}
+        onSelectLocale={handleSelectLocale}
         localeOpen={openMenu === "nav"}
         onLocaleOpenChange={(open) => setOpenMenu(open ? "nav" : null)}
       />
       <Hero
         photoRef={photoRef}
         locale={locale}
-        onSelectLocale={setLocaleId}
+        onSelectLocale={handleSelectLocale}
         localeOpen={openMenu === "hero"}
         onLocaleOpenChange={(open) => setOpenMenu(open ? "hero" : null)}
       />
